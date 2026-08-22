@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escola Virtual - Formulário de Pré-Matrícula</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 30px;
+  }
+
+  .form-container {
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #cdeef2;
+    border: 2px solid #333;
+    padding: 20px 30px 30px;
+  }
+
+  .form-container h2 {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .form-container h3 {
+    text-align: center;
+    font-weight: normal;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+
+  fieldset {
+    border: 1px solid #333;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 15px 20px;
+    width: 100%;
+  }
+
+  legend {
+    font-weight: bold;
+    padding: 0 8px;
+  }
+
+  .linha {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+
+  .linha label {
+    width: 150px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .linha input[type="text"],
+  .linha input[type="email"],
+  .linha select {
+    flex: 1;
+    min-width: 0;
+    padding: 5px;
+  }
+
+  .nascimento input {
+    flex: 1;
+    min-width: 60px;
+    padding: 5px;
+  }
+
+  .telefone {
+    row-gap: 6px;
+  }
+
+  .telefone input {
+    padding: 5px;
+  }
+
+  .telefone input[name="ddd"] {
+    width: 45px;
+    flex: none;
+  }
+
+  .telefone input.tel {
+    width: 90px;
+    flex: none;
+  }
+
+  .telefone input.ramal {
+    width: 55px;
+    flex: none;
+  }
+
+  .matricula-colunas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .coluna {
+    min-width: 140px;
+  }
+
+  .coluna {
+    flex: 1;
+  }
+
+  .coluna label {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .botoes {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .botoes button {
+    padding: 8px 20px;
+    margin: 0 8px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Escola Virtual</h2>
+    <h3>Formulário de Pré-Matrícula</h3>
+
+    <form>
+      <fieldset>
+        <legend>Dados Pessoais</legend>
+
+        <div class="linha">
+          <label for="nome">Nome do Aluno:</label>
+          <input type="text" id="nome" name="nome">
+        </div>
+
+        <div class="linha nascimento">
+          <label>Nascimento (dia/mês/ano):</label>
+          <input type="number" name="dia" placeholder="Dia">
+          <input type="number" name="mes" placeholder="Mês">
+          <input type="number" name="ano" placeholder="Ano">
+        </div>
+
+        <div class="linha">
+          <label for="mae">Nome da Mãe:</label>
+          <input type="text" id="mae" name="mae">
+        </div>
+
+        <div class="linha">
+          <label for="pai">Nome do Pai:</label>
+          <input type="text" id="pai" name="pai">
+        </div>
+
+        <div class="linha telefone">
+          <label>Telefone:</label>
+          DDD (<input type="text" name="ddd">)
+          Tel: <input type="text" class="tel" name="telefone">
+          Ramal: <input type="text" class="ramal" name="ramal">
+        </div>
+
+        <div class="linha">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email" name="email">
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Informações de Matrícula</legend>
+
+        <div class="matricula-colunas">
+          <div class="coluna">
+            <label for="serie">Série:</label>
+            <select id="serie" name="serie">
+              <option value="pre-escolar">Pré-escolar</option>
+              <option value="1ano">1º ano</option>
+              <option value="2ano">2º ano</option>
+              <option value="3ano">3º ano</option>
+            </select>
+          </div>
+
+          <div class="coluna">
+            <p><strong>Turno:</strong></p>
+            <label><input type="radio" name="turno" value="manha"> Manhã</label>
+            <label><input type="radio" name="turno" value="tarde"> Tarde</label>
+          </div>
+
+          <div class="coluna">
+            <p><strong>Atividades Extracurriculares:</strong></p>
+            <label><input type="checkbox" name="atividades" value="informatica"> Informática</label>
+            <label><input type="checkbox" name="atividades" value="musica"> Música</label>
+            <label><input type="checkbox" name="atividades" value="balet"> Balé</label>
+            <label><input type="checkbox" name="atividades" value="pintura"> Pintura</label>
+            <label><input type="checkbox" name="atividades" value="judo"> Judô</label>
+            <label><input type="checkbox" name="atividades" value="futebol"> Futebol</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="botoes">
+        <button type="submit">Enviar Formulário</button>
+        <button type="reset">Limpar Campos</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
