@@ -19,3 +19,5 @@ Basta abrir o arquivo `industria4.0.html` no navegador — não precisa de servi
 ## Autor
 
 Pedro Barreto — Ciência da Computação, UniCEUB
+Trabalho feito para a Disciplina de Desenvolvimento Web
+
