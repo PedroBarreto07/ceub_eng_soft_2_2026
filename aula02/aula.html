@@ -9,15 +9,22 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --navy: #16233f;
+            --navy-light: #1f3159;
+            --gray-bg: #eef1f5;
+            --gray-border: #d7dce3;
+        }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #dff5e8;
+            background-color: #ffffff;
             color: #1a1a1a;
         }
 
         header {
-            background-color: #4d4d4d;
+            background-color: var(--navy);
             padding: 20px 0;
             text-align: center;
         }
@@ -42,44 +49,65 @@
         }
 
         form {
-            background-color: #dff5e8;
+            background-color: #ffffff;
         }
 
         fieldset {
-            border: 1px solid #333;
-            border-left: none;
-            border-right: none;
-            margin: 0 0 15px 0;
-            padding: 15px 5px 20px;
+            border: 2px solid var(--navy);
+            border-radius: 18px;
+            margin: 0 0 25px 0;
+            padding: 30px 25px 25px;
+            position: relative;
         }
 
         legend {
-            padding: 0 8px;
+            padding: 8px 18px;
+            margin-left: 10px;
+            background-color: var(--navy);
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+
+        legend strong {
+            font-weight: bold;
         }
 
         .campo-grupo {
             display: flex;
             gap: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 18px;
         }
 
         .campo {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 8px;
             flex: 1;
         }
 
         .campo label {
             white-space: nowrap;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--navy);
+            font-size: 0.78rem;
+            letter-spacing: 0.3px;
         }
 
         .campo input {
-            flex: 1;
-            border: 1px solid #333;
-            background-color: #dff5e8;
-            padding: 4px 6px;
+            border: 1px solid var(--gray-border);
+            background-color: var(--gray-bg);
+            border-radius: 8px;
+            padding: 10px 12px;
             font-family: inherit;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .campo input::placeholder {
+            color: #9aa2ad;
         }
 
         table {
@@ -94,19 +122,65 @@
 
         table strong {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: var(--navy);
+            font-size: 0.78rem;
+            letter-spacing: 0.3px;
         }
 
         select {
-            border: 1px solid #333;
-            background-color: #dff5e8;
-            padding: 4px 6px;
+            border: 1px solid var(--gray-border);
+            background-color: var(--gray-bg);
+            border-radius: 8px;
+            padding: 10px 12px;
             font-family: inherit;
+            font-size: 0.95rem;
+            color: #333;
+            width: 100%;
         }
 
         input[type="radio"],
         input[type="checkbox"] {
             margin-right: 6px;
+            accent-color: var(--navy);
+        }
+
+        table label {
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        /* Caixa condicional "Segunda Língua" */
+        .segunda-lingua {
+            display: none;
+            margin-top: 18px;
+            padding: 14px 16px;
+            border: 2px dashed var(--navy-light);
+            border-radius: 10px;
+            background-color: #eaf1fc;
+        }
+
+        .segunda-lingua.ativo {
+            display: block;
+        }
+
+        .segunda-lingua strong {
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            color: var(--navy);
+            font-size: 0.78rem;
+            letter-spacing: 0.3px;
+        }
+
+        .segunda-lingua label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: normal;
+            text-transform: none;
+            color: #333;
+            font-size: 0.95rem;
         }
 
         .botoes {
@@ -130,12 +204,12 @@
         }
 
         input[type="submit"] {
-            background-color: #2e8b57;
+            background-color: var(--navy);
             color: #ffffff;
         }
 
         input[type="submit"]:hover {
-            background-color: #256e45;
+            background-color: var(--navy-light);
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
@@ -147,13 +221,13 @@
 
         input[type="reset"] {
             background-color: #ffffff;
-            color: #4d4d4d;
-            border: 1px solid #4d4d4d;
+            color: var(--navy);
+            border: 1px solid var(--navy);
             box-shadow: none;
         }
 
         input[type="reset"]:hover {
-            background-color: #4d4d4d;
+            background-color: var(--navy);
             color: #ffffff;
             transform: translateY(-2px);
         }
@@ -210,6 +284,59 @@
                     </div>
                 </div>
 
+                <div class="campo-grupo">
+                    <div class="campo">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="000.000.000-00">
+                    </div>
+                    <div class="campo">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" maxlength="9" placeholder="00000-000">
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend><strong>Endereço</strong></legend>
+
+                <div class="campo-grupo">
+                    <div class="campo">
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" id="logradouro" name="logradouro">
+                    </div>
+                    <div class="campo">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="Ex: 123">
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <div class="campo">
+                        <label for="complemento">Complemento</label>
+                        <input type="text" id="complemento" name="complemento" placeholder="Apto, Bloco...">
+                    </div>
+                    <div class="campo">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro" name="bairro">
+                    </div>
+                </div>
+
+                <div class="campo-grupo">
+                    <div class="campo">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade" name="cidade">
+                    </div>
+                    <div class="campo">
+                        <label for="estado">Estado</label>
+                        <input type="text" id="estado" name="estado">
+                    </div>
+                    <div class="campo">
+                        <label for="ibge">Código IBGE</label>
+                        <input type="text" id="ibge" name="ibge">
+                    </div>
+                </div>
+
             </fieldset>
 
             <fieldset>
@@ -227,6 +354,18 @@
                                 <option value="4ano">4º ano</option>
                                 <option value="5ano">5º ano</option>
                             </select>
+
+                            <div class="segunda-lingua" id="segunda_lingua_box">
+                                <strong>Segunda Língua</strong>
+                                <label>
+                                    <input type="radio" name="segunda_lingua" id="ingles" value="ingles">
+                                    🇺🇸 Inglês
+                                </label>
+                                <label>
+                                    <input type="radio" name="segunda_lingua" id="espanhol" value="espanhol">
+                                    🇪🇸 Espanhol
+                                </label>
+                            </div>
                         </td>
 
                         <td>
@@ -268,6 +407,87 @@
 
         </form>
     </main>
+
+    <script>
+        const serieSelect = document.getElementById('serie');
+        const segundaLinguaBox = document.getElementById('segunda_lingua_box');
+
+        function atualizarSegundaLingua() {
+            if (serieSelect.value === '5ano') {
+                segundaLinguaBox.classList.add('ativo');
+            } else {
+                segundaLinguaBox.classList.remove('ativo');
+            }
+        }
+
+        serieSelect.addEventListener('change', atualizarSegundaLingua);
+        atualizarSegundaLingua();
+
+        // ---------- Máscara de CPF (000.000.000-00) ----------
+        const cpfInput = document.getElementById('cpf');
+
+        cpfInput.addEventListener('input', () => {
+            let valor = cpfInput.value.replace(/\D/g, '').slice(0, 11);
+
+            valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+            valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+            valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+
+            cpfInput.value = valor;
+        });
+
+        // ---------- Máscara de CEP (00000-000) ----------
+        const cepInput = document.getElementById('cep');
+
+        cepInput.addEventListener('input', () => {
+            let valor = cepInput.value.replace(/\D/g, '').slice(0, 8);
+
+            valor = valor.replace(/(\d{5})(\d)/, '$1-$2');
+
+            cepInput.value = valor;
+        });
+
+        // ---------- Preenchimento automático do Endereço via CEP (ViaCEP) ----------
+        const logradouroInput = document.getElementById('logradouro');
+        const bairroInput = document.getElementById('bairro');
+        const cidadeInput = document.getElementById('cidade');
+        const estadoInput = document.getElementById('estado');
+        const ibgeInput = document.getElementById('ibge');
+
+        async function buscarEndereco() {
+            const cepLimpo = cepInput.value.replace(/\D/g, '');
+
+            if (cepLimpo.length !== 8) {
+                return;
+            }
+
+            try {
+                const resposta = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`);
+                const dados = await resposta.json();
+
+                if (dados.erro) {
+                    return;
+                }
+
+                logradouroInput.value = dados.logradouro || '';
+                bairroInput.value = dados.bairro || '';
+                cidadeInput.value = dados.localidade || '';
+                estadoInput.value = dados.uf || '';
+                ibgeInput.value = dados.ibge || '';
+
+                document.getElementById('numero').focus();
+            } catch (erro) {
+                console.error('Não foi possível buscar o endereço:', erro);
+            }
+        }
+
+        cepInput.addEventListener('blur', buscarEndereco);
+        cepInput.addEventListener('input', () => {
+            if (cepInput.value.replace(/\D/g, '').length === 8) {
+                buscarEndereco();
+            }
+        });
+    </script>
 
 </body>
 </html>
